@@ -1,16 +1,13 @@
-import { faker } from '@faker-js/faker';
 import { UserEntity, UserProps } from '../../user.entity';
+import { UserDataBilder } from '@/users/domain/testing/helpers/user-data-bilder';
 
 describe('UserEntity unit tests', () => {
   let props: UserProps;
   let sut: UserEntity;
 
   beforeEach(() => {
-    props = {
-      name: faker.name.fullName(),
-      email: faker.internet.email(),
-      password: faker.internet.password(),
-    };
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions, prettier/prettier
+    props = UserDataBilder( {} );
     sut = new UserEntity(props);
   });
   it('construtor metod', () => {
